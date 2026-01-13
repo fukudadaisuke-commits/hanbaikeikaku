@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Debug Test</title>
+</head>
+
+<body>
+    <h1>JavaScript Debug Test</h1>
+    <div id="output"></div>
+
+    <script src="js/data.js"></script>
+    <script>
+        document.getElementById('output').innerHTML = `
+            <h2>Data Check</h2>
+            <p>DataGenerator: ${typeof DataGenerator}</p>
+            <p>AppData: ${typeof AppData}</p>
+            <p>AppData.kpiSummary: ${JSON.stringify(AppData.kpiSummary?.sales || 'undefined')}</p>
+            <p>AppData.plans: ${AppData.plans?.length || 'undefined'}</p>
+            <p>AppData.monthlyTrend: ${AppData.monthlyTrend?.length || 'undefined'}</p>
+        `;
+    </script>
+
+    <script src="js/components/dashboard.js"></script>
+    <script>
+        document.getElementById('output').innerHTML += `
+            <h2>Dashboard Check</h2>
+            <p>Dashboard: ${typeof Dashboard}</p>
+            <p>Dashboard.render: ${typeof Dashboard?.render}</p>
+        `;
+
+        try {
+            const html = Dashboard.render();
+            document.getElementById('output').innerHTML += `<p style="color:green">Dashboard.render() 成功!</p>`;
+        } catch (e) {
+            document.getElementById('output').innerHTML += `<p style="color:red">Dashboard.render() エラー: ${e.message}</p>`;
+        }
+    </script>
+
+    <script src="js/router.js"></script>
+    <script>
+        document.getElementById('output').innerHTML += `
+            <h2>Router Check</h2>
+            <p>Router: ${typeof Router}</p>
+        `;
+    </script>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.getElementById('output').innerHTML += `
+            <h2>App Check</h2>
+            <p>App: ${typeof App}</p>
+        `;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>販売計画システム | SalesPlan Pro</title>
+    <meta name="description" content="小売業向け販売計画管理システム - 年次・月次・週次計画の一元管理">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- サイドバーナビゲーション -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#2563EB" />
+                        <path d="M8 16L14 22L24 10" stroke="white" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <span class="logo-text">SalesPlan Pro</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">メイン</span>
+                    <a href="#dashboard" class="nav-item active" data-page="dashboard">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" rx="1" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" />
+                        </svg>
+                        <span>ダッシュボード</span>
+                    </a>
+                    <a href="#plan-list" class="nav-item" data-page="plan-list">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
+                            <rect x="9" y="3" width="6" height="4" rx="1" />
+                            <path d="M9 12h6M9 16h6" />
+                        </svg>
+                        <span>販売計画一覧</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">計画管理</span>
+                    <a href="#plan-edit" class="nav-item" data-page="plan-edit">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 20h9" />
+                            <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+                        </svg>
+                        <span>計画登録・編集</span>
+                    </a>
+                    <a href="#product-hierarchy" class="nav-item" data-page="product-hierarchy">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3h18v18H3zM3 9h18M9 21V9" />
+                        </svg>
+                        <span>商品階層別計画</span>
+                    </a>
+                    <a href="#store-area" class="nav-item" data-page="store-area">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                        <span>店舗・エリア別計画</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">分析・承認</span>
+                    <a href="#analysis" class="nav-item" data-page="analysis">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                        </svg>
+                        <span>差異分析</span>
+                    </a>
+                    <a href="#approval" class="nav-item" data-page="approval">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <span>承認ワークフロー</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">設定</span>
+                    <a href="#templates" class="nav-item" data-page="templates">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M3 9h18M9 21V9" />
+                        </svg>
+                        <span>テンプレート管理</span>
+                    </a>
+                    <a href="#data-import" class="nav-item" data-page="data-import">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        <span>マスタ連携・取込</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">田中</div>
+                    <div class="user-details">
+                        <span class="user-name">田中 太郎</span>
+                        <span class="user-role">本部企画部</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- メインコンテンツエリア -->
+        <main class="main-content">
+            <!-- ヘッダー -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg>
+                    </button>
+                    <h1 class="page-title" id="pageTitle">ダッシュボード</h1>
+                </div>
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="btn btn-icon" title="データ再生成" onclick="App.refreshData()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10" />
+                                <polyline points="1 20 1 14 7 14" />
+                                <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" />
+                            </svg>
+                        </button>
+                        <button class="btn btn-icon" title="通知">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                                <path d="M13.73 21a2 2 0 01-3.46 0" />
+                            </svg>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    <div class="period-selector">
+                        <select id="periodSelect" class="form-select">
+                            <option value="2026">2026年度</option>
+                            <option value="2025">2025年度</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ページコンテンツ -->
+            <div class="page-content" id="pageContent">
+                <!-- 各ページがここに動的に読み込まれる -->
+            </div>
+        </main>
+    </div>
+
+    <!-- モーダル用コンテナ -->
+    <div id="modalContainer"></div>
+
+    <!-- トースト通知用コンテナ -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- スクリプト読み込み -->
+    <script src="js/data.js?v=7"></script>
+    <script src="js/components/dashboard.js?v=7"></script>
+    <script src="js/components/planList.js?v=7"></script>
+    <script src="js/components/planEdit.js?v=7"></script>
+    <script src="js/components/productHierarchy.js?v=7"></script>
+    <script src="js/components/storeArea.js?v=7"></script>
+    <script src="js/components/analysis.js?v=7"></script>
+    <script src="js/components/approval.js?v=7"></script>
+    <script src="js/components/templates.js?v=7"></script>
+    <script src="js/components/dataImport.js?v=7"></script>
+    <script src="js/router.js?v=7"></script>
+    <script src="js/app.js?v=7"></script>
+
+    <!-- エラーハンドリング -->
+    <script>
+        window.onerror = function (msg, url, line, col, error) {
+            console.error('Error:', msg, 'at', url, line, col);
+            document.getElementById('pageContent').innerHTML = `
+                <div class="card" style="margin: 20px; padding: 20px;">
+                    <h3 style="color: #dc2626;">エラーが発生しました</h3>
+                    <p>${msg}</p>
+                    <p style="font-size: 12px; color: #666;">${url} (行: ${line})</p>
+                    <button class="btn btn-primary" onclick="location.reload()">再読み込み</button>
+                </div>
+            `;
+            return false;
+        };
+    </script>
+</body>
+
+</html>
