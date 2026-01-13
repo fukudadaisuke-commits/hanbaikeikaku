@@ -24,18 +24,18 @@
 ### 業務フロー図 (Mermaid)
 
 ```mermaid
-graph TD
+flowchart TD
     %% レーン定義
-    subgraph Data [データソース/連携]
+    subgraph Data ["データソース/連携"]
         PreResults[前月/前週実績]
         Master[商品/店舗マスタ]
     end
 
-    subgraph User_MD [MD/BY (計画策定)]
+    subgraph User_MD ["MD/BY (計画策定)"]
         M1[M1 販売実績確認]
         M2[M2 戦略/定常 商品改廃]
         
-        subgraph Planning [詳細計画策定]
+        subgraph Planning ["詳細計画策定"]
             M3[M3 基準売価設定/更新]
             M4[M4 商品目標金額調整]
             M5[M5 売上/粗利確認 Rep.]
@@ -43,14 +43,14 @@ graph TD
         
         Meeting[販売会議 (修正・確定)]
         
-        subgraph Registration [システム登録]
+        subgraph Registration ["システム登録"]
             M6[M6 戦略/定常登録]
             M7[M7 商品目標金額確定]
             Report[月次/週次販売計画 Rep.]
         end
     end
 
-    subgraph User_Mgr [BULeader/部長 (承認)]
+    subgraph User_Mgr ["BULeader/部長 (承認)"]
         Approval{M8 計画確認・承認}
     end
 
